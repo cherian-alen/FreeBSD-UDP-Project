@@ -43,7 +43,7 @@ make_vm()
     # ---- Misc Settings ---- #
     echo "Apply system settings..."
     VBoxManage modifyvm $VM --ioapic on --pae on --longmode on
-    VBoxManage modifyvm $VM --boot1 disk --boot2 dvd --boot3 none --boot4 none
+    VBoxManage modifyvm $VM --boot1 dvd --boot2 disk --boot3 none --boot4 none
     VBoxManage modifyvm $VM --memory $SYSMEM --vram 16
 
     # ---- NICs ---- #
@@ -85,10 +85,10 @@ else
 fi
 
 # create testbed hosts
-make_vm FB11-test1 10240 1024 3322 mptcp-intnet1 mptcp-intnet2 mptcp-intnet0
-make_vm FB11-test2 4096 512 3323 mptcp-intnet3 mptcp-intnet4 mptcp-intnet0
-make_vm DummynetVM1 4096 512 4422 mptcp-intnet1 mptcp-intnet3 mptcp-intnet5
-make_vm DummynetVM2 4096 512 4423 mptcp-intnet2 mptcp-intnet4 mptcp-intnet5
+make_vm FB11-test1 51200 2048 3322 mptcp-intnet1 mptcp-intnet2 mptcp-intnet0
+make_vm FB11-test2 40960 1024 3323 mptcp-intnet3 mptcp-intnet4 mptcp-intnet0
+make_vm DummynetVM1 40960 1024 4422 mptcp-intnet1 mptcp-intnet3 mptcp-intnet5
+make_vm DummynetVM2 40960 1024 4423 mptcp-intnet2 mptcp-intnet4 mptcp-intnet5
 
 echo "Done. Launch VMs from VirtualBox to complete install of FreeBSD."
 echo "Remember to eject the ISO once install is complete."
